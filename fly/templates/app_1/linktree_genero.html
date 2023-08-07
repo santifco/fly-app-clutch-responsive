@@ -1,0 +1,338 @@
+{% load static %}
+
+<style>
+/* Style Settings */
+body {
+      background-color: rgb(0, 0, 0);
+            background-color: black;
+
+      font-family: "Inter", sans-serif;
+      margin: auto;
+      padding: 10px;
+ 
+      display: flex column;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+    }
+
+    .Bottom-Section {
+      margin: auto;
+      width: 50%;
+      align-items: center;
+    }
+
+
+
+    .Top-Section {
+      margin: auto;
+      width: 50%;
+      align-items: center;
+    }
+    
+    
+    
+    #userPhoto {
+      width: 150px;
+      height: 150px;
+      display: block;
+      margin: 45px auto 30px;
+      border-radius: 50%;
+      border: solid black 2px;
+            border: solid black 2px;
+
+      box-shadow: 0px 7px 15px rgba(20, 20, 20, 0.5);
+    }
+
+    #userName {
+      color: #1c1c1c;
+      font-size: 25px;
+      display: block;
+      margin: auto;
+      width: 50%;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    #links {
+      max-width: 600px;
+      width: auto;
+      margin: 25px auto;
+      display: flex column;
+      flex-wrap: wrap;
+      padding: 5px;
+    }
+
+    .link {
+      display: block;
+      background-color: #e6e6e6;
+      color: #1c1c1c;
+            color: #000;
+
+      font-family: "Inter", sans-serif;
+      text-align: center;
+      margin-bottom: 20px;
+      padding: 17px;
+      text-decoration: none;
+      font-size: 20px;
+      border: solid #e6e6e6 2px;
+      box-shadow: 0px 7px 15px rgba(20, 20, 20, 0.5);
+    }
+
+    .link:hover {
+      background-color: #1c1c1c;
+      color: #e6e6e6;
+            color: #eee;
+                  background-color: #000;
+
+
+    }
+
+    .icon-container {
+      display: flex;
+      justify-content: space-evenly;
+      padding-top: 10px;
+      padding-bottom: 0px;
+      margin: auto;
+      width: 60%;
+      align-items: center;
+      text-align: center;
+    }
+
+    .icon {
+      font-size: 30px;
+      color: #bbb;
+      color: white;
+
+      opacity: 0.6;
+            opacity: 1.6;
+
+      height: 30px;
+      text-decoration: none;
+    }
+
+    .icon:hover {
+      color: white;
+      opacity: 1.6;
+            opacity: 0.6;
+
+    }
+
+    p {
+      text-align: center;
+      color: #bbb;
+           color: #343434;
+    }
+    
+       footer p {
+      text-align: center;
+      color: silver;
+            color: grey;
+                       color: #757670;
+         color: #000;
+         font-weight: 200!important;
+
+
+
+    }
+ 
+    h1 {
+      color: #484848;
+      font-size: 30px;
+      font-weight: bold;
+      font-family: "Inter", sans-serif;
+      letter-spacing: 7px;
+      cursor: pointer
+    }
+
+    h1 span {
+      transition: .5s linear
+    }
+
+    h1:hover span {
+      color: Black;
+      text-shadow:
+        0 0 10px #fff,
+        0 0 20px white,
+        0 0 40px black;
+    }
+    
+      h3 {
+      color: white;
+      font-size: 30px;
+     
+      font-family: "Inter", sans-serif;
+        font-weight: 200!important;
+      letter-spacing: -1px;
+      cursor: normal;
+      text-align: center;
+    }
+    
+          h3 b {
+      color: white;
+      font-size: 30px;
+     
+      font-family: "Inter", sans-serif;
+        font-weight: 900!important;
+      letter-spacing: -1px;
+      cursor: normal;
+      text-align: center;
+    }
+    
+
+    h3 span {
+      transition: .5s linear
+    }
+
+    h3:hover span {
+      color: Black;
+      text-shadow:
+        0 0 10px #fff,
+        0 0 20px white,
+        0 0 40px black;
+    }
+       h4 {
+      color: #000;
+      font-size: 20px;
+     line-height:20px;
+      font-family: "Inter", sans-serif;
+        font-weight: 900!important;
+                font-weight: 300!important;
+
+      letter-spacing: -1px;
+      cursor: normal;
+      text-align: center;
+    }
+</style>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Links - Clutch Planet</title>
+  
+
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Links - Clutch Planet</title>
+   <meta name="description" content="DREAM POP & PSYCH ROCK: we are Dara Lucie.
+A Vienna-Based, Austrian-Belgian-Estonian band with more and more music on the way">
+    <meta name="keywords" content="Dara Lucie Music, dreampop, links, marko maemets, wheresdara,iixii.codes, iixii.at">
+    <meta name="author" content="IIXII.at, Dara Lucie M. Verstraeten ">
+    
+    
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <!-- <script src="https://kit.fontawesome.com/105f3dc82e.js" crossorigin="anonymous"></script> -->
+    <script src="https://kit.fontawesome.com/45cd27a11b.js" crossorigin="anonymous"></script>
+
+ 
+  <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+
+  <style>
+  </style>
+
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6LVMS1H5R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q6LVMS1H5R');
+</script>
+
+<body>
+ 
+  <img id="userPhoto" src="{% static 'app_1/logo.png' %}" alt="">
+  
+ 
+ 
+   <h3> <b>Clutch</b> Planet</h3>
+       <!-- <h4 style="color:white"> Basketball Shoes </h4>  -->
+
+ 
+ 
+  <div class="Top-Section">
+   
+     <div class="icon-container">
+     <!-- <a class="icon" href="https://www.facebook.com/profile.php?id=100081998637138" target="_blank"><i class="fa fa-facebook fa-lg"></i></a> -->
+      <a class="icon" href="https://www.instagram.com/clutch.planet/" target="_blank"><i class="fa fa-instagram fa-lg"></i></a>
+        <!-- <a class="icon" href="" target="_blank"><i class="fa fa-youtube fa-lg" ></i> </a> -->
+      <!--   <a class="icon" href="https://www.daralucie.xyz/daralucie/" target="_blank"><i class="fa fa-link fa-lg"></i></a>
+       -->
+       
+    </div>
+  </div>
+
+   
+  <div id="links">
+       <!--
+       >  <a class="link" href="https://www.instagram.com/daralucie" target="_blank"><i class="fa fa-instagram" style="padding:10px"></i> Instagram</a>
+
+          <a class="link" href="https://www.facebook.com/daralucie/" target="_blank"><i class="fa-arrow-up-right-from-square" style="padding:10px"></i> Facebook </a>
+
+  -->
+     
+
+
+            <a class="link" href="{% url 'linktree_urban' %}" ><i class="" style="padding:10px"></i> Hombre</a>  
+            
+            <a class="link" href="{% url 'linktree_urban_women' %}" ><i class="" style="padding:10px"></i> Mujer </a>
+
+
+
+
+  </div>
+ 
+  
+
+  <div class="Bottom-Section">
+   
+  <div class="icon-container">
+   <a class="icon" href="{% url 'linktree' %}"  ><i class="fa-solid fa-house"></i></a>
+ </div>
+</div>
+  <!--
+  <div class="Bottom-Section">
+   
+     <div class="icon-container">
+     <a class="icon" href="https://www.facebook.com/daralucie/" target="_blank"><i class="fa fa-facebook"></i></a>
+      <a class="icon" href="https://www.instagram.com/daralucie/" target="_blank"><i class="fa fa-instagram"></i></a>
+       <a class="icon" href="https://vimeo.com/daralucie" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+
+
+
+           <a class="icon" href="https://www.youtube.com/c/DARALUCIE" target="_blank"><i class="fa fa-youtube"></i></a>
+
+    </div>
+  </div>
+  -->
+  
+
+
+
+  <!-- Javascript -->
+     <!-- <script src="https://kit.fontawesome.com/105f3dc82e.js" crossorigin="anonymous"></script> -->
+     <script src="https://kit.fontawesome.com/45cd27a11b.js" crossorigin="anonymous"></script>
+
+ 
+</body>
+</html>
+
+
+<!-- <div class="Bottom-Section">
+   
+  <div class="icon-container">
+   <a class="icon" href="{% url 'linktree' %}"  ><i class="fa-solid fa-house"></i></a>
+ </div>
+</div> -->

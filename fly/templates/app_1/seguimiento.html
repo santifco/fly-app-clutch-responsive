@@ -1,0 +1,274 @@
+{% load static %}
+
+
+<html>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=0.9">
+        <head>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> 
+            <!-- CSS only -->
+            
+            <style>
+            body{
+                background-color:black
+            }
+
+            h3 {
+                
+                text-align: center;
+                color: black;
+            }
+
+            .clutch{
+                color:white;
+            }
+
+            .form{
+                color: black;
+                padding: 25px;
+            }
+
+            #userPhoto {
+                width: 130px;
+                height: 130px;
+                display: inline;
+                margin: 25px auto 30px;
+                margin-bottom: 10px;
+                border-radius: 50%;
+                border: solid black 2px;
+                        border: solid black 2px;
+
+                box-shadow: 0px 7px 15px rgba(20, 20, 20, 0.5);
+                }
+
+                #msform {
+                text-align: center;
+                position: relative;
+                margin-top: 15px;
+                }
+
+                #field_form{
+                background: white;
+                border: 0 none;
+                border-radius: 15px;
+                box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+                padding: 20px 30px;
+                box-sizing: border-box;
+                width: 490px;
+                margin:auto;
+                height: 300px;
+                transition: height 1s ease;
+            
+                /*stacking fieldsets above each other*/
+
+            }
+
+            #field_form.expanded {
+                height: 700px;
+            }
+
+            /* #field_form:hover {
+                height:500px;
+            } */
+
+            .Bottom-Section {
+                margin: auto;
+                width: 50%;
+                align-items: center;
+                }
+
+
+                .icon-container {
+                display: flex;
+                    justify-content: space-evenly;
+                    padding: 15px;
+                    margin: auto;
+                    width: 60%;
+                    align-items: center;
+                    text-align: center;
+                    }
+
+                    .icon {
+                    font-size: 30px;
+                    color: #bbb;
+                    color: white;
+
+                    opacity: 0.6;
+                            opacity: 1.6;
+
+                    height: 30px;
+                    text-decoration: none;
+                    }
+                
+                    .btn{
+                        width: 150px;
+                        border-radius: 20px;
+                    }
+
+                    #precios{
+                        visibility: hidden;
+                    }
+
+                    *, *:after, *:before { margin:0; padding:0; }
+
+                    .node {
+                        height: 10px;
+                        width: 10px;
+                        border-radius: 50%;
+                        display:inline-block;
+                        transition: all 1000ms ease;
+                    }
+
+                    .activated {
+                        box-shadow: 0px 0px 3px 2px rgba(194, 255, 194, 0.8);
+                    }
+
+                    .divider {
+                        height: 65px;
+                        width: 2px;
+                        margin-left: 4px;
+                        transition: all 800ms ease;
+                        margin-top: -28px;
+                        margin-bottom: -2px;
+                        display: inline-block
+                    }
+
+                    li p {
+                        display:inline-block;
+                        margin-left: 25px;
+                    }
+
+                    li {
+                        list-style: none;
+                        line-height: 1px;
+                        text-align: left;
+                    }
+
+
+                    .blue { background-color: rgba(82, 165, 255, 1);   }
+                    .green{ background-color: rgba(92, 184, 92, 1); }
+                    .red { background-color: rgba(255, 148, 148, 1); }
+                    .grey { background-color: rgba(201, 201, 201, 1); }
+            </style>
+
+            <title>Segui tu pedido</title>
+        </head>
+
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6LVMS1H5R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q6LVMS1H5R');
+</script>
+
+    <body>
+        <h3 class="clutch"> <b>Clutch</b> Planet <img id="userPhoto" src="{% static 'fly/logo.png' %}" alt=""></h3>
+
+        {% load crispy_forms_tags %}
+        <div id="msform">
+        <fieldset id ="field_form" >
+        <h3 style="margin:10px;text-align: center;"> Estado del Envío</h3>
+        <form class="form" method="post" style="margin:auto;width:fit-content;"  >
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Número de seguimiento: </label>
+                  <input  name = "value" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" autofocus >
+                  <small id="emailHelp" class="form-text text-muted">Ingrese el número de seguimiento para cononcer el estado del pedido.</small>
+                </div>
+                <button id="button_see" type="submit" class="btn btn-dark" value="value">Track</button>
+        </form>
+        <div class="results" style="margin:20px;text-align: center;">    
+        <br>     
+        {% if fecha_compra %}
+        <script>
+            // document.getElementById("field_form").style.height = "500px" ;
+            // document.getElementById("field_form").classList.toggle("expanded");
+            document.getElementById("exampleInputEmail1").placeholder = "{{value}}"
+        </script>
+        <div id="precios">
+        <br>
+        <ul id="progress">
+            <li><div class="node grey"></div> <p> Se realizó tu pedido </p> 
+                <div ><p style="margin-left:40px; font-weight: 300; font-size: 10px;">{{fecha_compra}}</p></div>
+            </li>
+            {% if fecha_llegada_deposito != 0 or fecha_llegada_deposito == "NaT"  %}
+            <li><div class="divider grey"></div></li>
+            <li><div class="node grey"></div><p>Tu pedido llego al depósito en USA</p>
+                <div ><p style="margin-left:38px; font-weight: 300; font-size: 10px;">{{fecha_llegada_deposito}}</p></div>
+            </li>
+            {% endif %}
+            {% if fecha_vuelo != 0 or fecha_llegada_deposito == "NaT" %}
+            <li><div class="divider grey"></div></li>
+            <li><div class="node grey"></div><p>Tu pedido se encuentra en vuelo a ARG </p>
+                <div ><p style="margin-left:38px; font-weight: 300; font-size: 10px;">{{fecha_vuelo}}</p></div>
+            </li>
+            {% endif %}
+            {% if fecha_arribo != 0 or fecha_llegada_deposito == "NaT" %}
+            <li><div class="divider grey"></div></li>
+            <li><div class="node grey"></div><p>Llegó a ARG! </p>
+                <div ><p style="margin-left:38px; font-weight: 300; font-size: 10px;">{{fecha_arribo}}</p></div>
+            </li>
+            {% endif %}
+        </ul>
+        <br>
+        <div>
+        <p style="line-height: 10px;"> {{fecha_llegada_estimada}}</p>
+        <p style="font-size: 13px; line-height: 0px;"> Fecha estimada de llegada</p>
+        </div>
+        </div>
+        {% endif %}
+    </fieldset>
+    </div>
+    </body>
+</html>
+
+
+<div class="Bottom-Section">
+   
+    <div class="icon-container">
+     <a class="icon" href="{% url 'linktree_basketball_menu' %}"  ><i class="fa-solid fa-house"></i></a>
+   </div>
+ </div>
+
+
+   <!-- Javascript -->
+   <script src="https://kit.fontawesome.com/105f3dc82e.js" crossorigin="anonymous"></script>
+
+   <!-- <script>
+    const seeMore = document.getElementById("button_see");
+    const article = document.getElementById("field_form");
+
+    seeMore.addEventListener("click", () => {
+    article.classList.toggle("expanded");})
+   </script> -->
+
+   <script>
+    if (document.getElementById('precios') !== null){
+        setTimeout(function(){
+        document.getElementById("field_form").classList.toggle("expanded");
+        },1);
+        setTimeout(function(){
+        document.getElementById("precios").style.visibility = "visible"        
+        },500)  
+
+        var l = document.getElementById("progress").getElementsByTagName("li").length
+        console.log(l)
+
+        var list = document.getElementById('progress'),
+        children = list.children
+
+        for (var i = l-2; l-1 ; i++) {
+        children[i].children[0].classList.remove('grey');
+        children[i].children[0].classList.add('green');
+    }
+    }
+    // document.getElementById("field_form").classList.toggle("expanded");
+   </script>
+
+ 
+
+

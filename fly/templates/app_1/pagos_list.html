@@ -1,0 +1,44 @@
+{% extends "app_1/base.html" %}
+
+
+{% block content %}
+
+<h1> Pagos List</h1>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+  
+  
+      <table class="table">
+
+        <tbody id = "pagos_list">
+            {% for row in pagos_list %}
+                <td>{{row.member}}</td>
+                <td class="month_number" id="month_number">{{row.date.month}}</td>
+                <td>{{row.amount}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+
+      <script>
+
+        function toMonthName(monthNumber) {
+          const date = new Date();
+          date.setMonth(monthNumber - 1);
+
+          return date.toLocaleString('en-US', {
+            month: 'long',
+          });
+        }
+
+        var slides = document.getElementsByClassName("month_number");
+        for (var i = 0; i < slides.length; i++) {
+          slides.item(i).innerHTML=toMonthName(Number(slides.item(i).innerHTML))
+        }
+
+        
+
+      </script>
+
+{% endblock %}

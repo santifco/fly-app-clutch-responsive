@@ -1,0 +1,22 @@
+{% extends "app_1/base.html" %}
+
+
+{% block content %}
+
+<h1> Sedes List</h1>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+  
+  
+      <table class="table">
+
+        <tbody id = "sedes_list">
+            {% for row in sedes_list %}
+                <td>{{row.name}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+
+{% endblock %}

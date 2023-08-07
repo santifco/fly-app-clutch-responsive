@@ -1,0 +1,24 @@
+{% extends "app_1/base.html" %}
+
+
+{% block content %}
+
+<h1> Gastos List</h1>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+  
+  
+      <table class="table">
+
+        <tbody id = "members_list">
+            {% for row in gastos_list %}
+                <td>{{row.item}}</td>
+                <td>{{row.amount}}</td>
+                <td>{{row.profesor}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+
+{% endblock %}
