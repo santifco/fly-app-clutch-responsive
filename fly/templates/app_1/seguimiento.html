@@ -12,6 +12,8 @@
             body{
                 background-color:black
             }
+            
+            
 
             h3 {
                 
@@ -23,9 +25,31 @@
                 color:white;
             }
 
-            .form{
-                color: black;
-                padding: 25px;
+            .form-container{
+                background: white;
+                border: 0 none;
+                border-radius: 15px;
+                box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+                padding: 20px 30px;
+                box-sizing: border-box;
+                width: 490px;
+                margin:auto;
+                height: 300px;
+                transition: height 1s ease; 
+                text-align: center;
+                
+            }
+
+            .btn-form{
+                margin-top: 15px;
+            }
+
+            #form-container.expanded {
+                height: 700px;
+            }
+
+            .results{
+                transition: height 1s ease; 
             }
 
             #userPhoto {
@@ -41,35 +65,27 @@
                 box-shadow: 0px 7px 15px rgba(20, 20, 20, 0.5);
                 }
 
-                #msform {
-                text-align: center;
-                position: relative;
-                margin-top: 15px;
-                }
-
-                #field_form{
-                background: white;
-                border: 0 none;
-                border-radius: 15px;
-                box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+                .field_form{
+                background: black;
                 padding: 20px 30px;
                 box-sizing: border-box;
                 width: 490px;
                 margin:auto;
-                height: 300px;
                 transition: height 1s ease;
-            
-                /*stacking fieldsets above each other*/
+
 
             }
 
-            #field_form.expanded {
+            .form-group{
+                background-color: black;
+            }
+
+            .expanded {
                 height: 700px;
+
             }
 
-            /* #field_form:hover {
-                height:500px;
-            } */
+
 
             .Bottom-Section {
                 margin: auto;
@@ -166,63 +182,64 @@
 </script>
 
     <body>
+
         <h3 class="clutch"> <b>Clutch</b> Planet <img id="userPhoto" src="{% static 'fly/logo.png' %}" alt=""></h3>
 
         {% load crispy_forms_tags %}
         <div id="msform">
-        <fieldset id ="field_form" >
-        <h3 style="margin:10px;text-align: center;"> Estado del Envío</h3>
-        <form class="form" method="post" style="margin:auto;width:fit-content;"  >
-                {% csrf_token %}
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Número de seguimiento: </label>
-                  <input  name = "value" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" autofocus >
-                  <small id="emailHelp" class="form-text text-muted">Ingrese el número de seguimiento para cononcer el estado del pedido.</small>
-                </div>
-                <button id="button_see" type="submit" class="btn btn-dark" value="value">Track</button>
-        </form>
-        <div class="results" style="margin:20px;text-align: center;">    
+        <fieldset id ="field_form" class="field-form" >
+        <div class="form-container" id="form-container" style="margin:auto;width:fit-content;"  >
+                <h3 style="margin:10px;text-align: center;"> Estado del Envío</h3>
+                    <form class="form" method="post">
+                        {% csrf_token %}
+                        <label for="exampleInputEmail1">Número de seguimiento: </label>
+                        <input  name = "value" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" autofocus >
+                        <small id="emailHelp" class="form-text text-muted">Ingrese el número de seguimiento para cononcer el estado del pedido.</small>
+                      <button id="button_see" type="submit" class="btn btn-dark btn-form" value="value">Track</button>
+                    </form>
+                <div class="results" style="margin:20px;text-align: center;">    
         <br>     
         {% if fecha_compra %}
-        <script>
-            // document.getElementById("field_form").style.height = "500px" ;
-            // document.getElementById("field_form").classList.toggle("expanded");
-            document.getElementById("exampleInputEmail1").placeholder = "{{value}}"
-        </script>
-        <div id="precios">
-        <br>
-        <ul id="progress">
-            <li><div class="node grey"></div> <p> Se realizó tu pedido </p> 
-                <div ><p style="margin-left:40px; font-weight: 300; font-size: 10px;">{{fecha_compra}}</p></div>
-            </li>
-            {% if fecha_llegada_deposito != 0 or fecha_llegada_deposito == "NaT"  %}
-            <li><div class="divider grey"></div></li>
-            <li><div class="node grey"></div><p>Tu pedido llego al depósito en USA</p>
-                <div ><p style="margin-left:38px; font-weight: 300; font-size: 10px;">{{fecha_llegada_deposito}}</p></div>
-            </li>
-            {% endif %}
-            {% if fecha_vuelo != 0 or fecha_llegada_deposito == "NaT" %}
-            <li><div class="divider grey"></div></li>
-            <li><div class="node grey"></div><p>Tu pedido se encuentra en vuelo a ARG </p>
-                <div ><p style="margin-left:38px; font-weight: 300; font-size: 10px;">{{fecha_vuelo}}</p></div>
-            </li>
-            {% endif %}
-            {% if fecha_arribo != 0 or fecha_llegada_deposito == "NaT" %}
-            <li><div class="divider grey"></div></li>
-            <li><div class="node grey"></div><p>Llegó a ARG! </p>
-                <div ><p style="margin-left:38px; font-weight: 300; font-size: 10px;">{{fecha_arribo}}</p></div>
-            </li>
-            {% endif %}
-        </ul>
-        <br>
-        <div>
+            <script>
+                // document.getElementById("field_form").style.height = "500px" ;
+                // document.getElementById("field_form").classList.toggle("expanded");
+                document.getElementById("exampleInputEmail1").placeholder = "{{value}}"
+            </script>
+                    <div id="precios">
+                    <br>
+                    <ul id="progress">
+                        <li><div class="node grey"></div> <p> Se realizó tu pedido </p> 
+                            <div ><p style="margin-left:40px; font-weight: 300; font-size: 10px;">{{fecha_compra}}</p></div>
+                        </li>
+                        {% if fecha_llegada_deposito != 0 or fecha_llegada_deposito == "NaT"  %}
+                        <li><div class="divider grey"></div></li>
+                        <li><div class="node grey"></div><p>Tu pedido llego al depósito en USA</p>
+                            <div ><p style="margin-left:38px; font-weight: 300; font-size: 10px;">{{fecha_llegada_deposito}}</p></div>
+                        </li>
+                        {% endif %}
+                        {% if fecha_vuelo != 0 or fecha_llegada_deposito == "NaT" %}
+                        <li><div class="divider grey"></div></li>
+                        <li><div class="node grey"></div><p>Tu pedido se encuentra en vuelo a ARG </p>
+                            <div ><p style="margin-left:38px; font-weight: 300; font-size: 10px;">{{fecha_vuelo}}</p></div>
+                        </li>
+                        {% endif %}
+                        {% if fecha_arribo != 0 or fecha_llegada_deposito == "NaT" %}
+                        <li><div class="divider grey"></div></li>
+                        <li><div class="node grey"></div><p>Llegó a ARG! </p>
+                            <div ><p style="margin-left:38px; font-weight: 300; font-size: 10px;">{{fecha_arribo}}</p></div>
+                        </li>
+                        {% endif %}
+                    </ul>
+                    <br>
+                    <div>
         <p style="line-height: 10px;"> {{fecha_llegada_estimada}}</p>
         <p style="font-size: 13px; line-height: 0px;"> Fecha estimada de llegada</p>
-        </div>
         </div>
         {% endif %}
     </fieldset>
     </div>
+    </div>
+
     </body>
 </html>
 
@@ -249,7 +266,7 @@
    <script>
     if (document.getElementById('precios') !== null){
         setTimeout(function(){
-        document.getElementById("field_form").classList.toggle("expanded");
+        document.getElementById("form-container").classList.toggle("expanded");
         },1);
         setTimeout(function(){
         document.getElementById("precios").style.visibility = "visible"        
